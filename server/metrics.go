@@ -218,9 +218,9 @@ func (m *Metrics) ApiAfter(name string, elapsed time.Duration, isErr bool) {
 	}
 }
 
-// Set the absolute value of currently allocated Lua runtime VMs.
-func (m *Metrics) GaugeRuntimes(value float64) {
-	m.prometheusScope.Gauge("lua_runtimes").Update(value)
+// Set the absolute value of currently allocated runtime VMs.
+func (m *Metrics) GaugeRuntimes(tag string, value float64) {
+	m.prometheusScope.Gauge(tag).Update(value)
 }
 
 // Set the absolute value of currently running authoritative matches.
